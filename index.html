@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuestionario de Eventos</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script>
+        function toggleOtherInput() {
+            const tipoEvento = document.getElementById('tipo-evento');
+            const otroEventoInput = document.getElementById('otro-evento');
+            otroEventoInput.style.display = tipoEvento.value === 'otro' ? 'block' : 'none';
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <img src="logo/logofk.jpg" alt="Logo de la Empresa">
+        <h1>Cuestionario de Eventos</h1>
+    </header>
+    <div class="container">
+        <h2>Por favor, complete el siguiente formulario</h2>
+        <form>
+            <label for="tipo-evento">Tipo de Evento:</label>
+            <select id="tipo-evento" onchange="toggleOtherInput()" required>
+                <option value="">Seleccione...</option>
+                <option value="boda">Boda</option>
+                <option value="cumpleaños">Cumpleaños</option>
+                <option value="corporativo">Evento Corporativo</option>
+                <option value="otro">Otro</option>
+            </select>
+            
+            <div id="otro-evento" style="display: none;">
+                <label for="evento-otro">Especifica otro evento:</label>
+                <input type="text" id="evento-otro" placeholder="Escriba el tipo de evento">
+            </div>
+
+            <label for="tema-evento">Tema del Evento:</label>
+            <input type="text" id="tema-evento" required>
+
+            <label for="detalles">Detalles Adicionales:</label>
+            <textarea id="detalles" rows="4" placeholder="Escriba aquí cualquier detalle adicional..." required></textarea>
+
+            <label for="nombre-cliente">Nombre del Cliente:</label>
+            <input type="text" id="nombre-cliente" required>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+</body>
+</html>
+
